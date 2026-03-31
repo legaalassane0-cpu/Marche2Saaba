@@ -4,7 +4,7 @@ from .models import Annonce
 def index(request):
     q = request.GET.get('q')
     annonces = Annonce.objects.filter(titre__icontains=q) if q else Annonce.objects.all()
-    return render(request, "annonces/index.html", {"annonces": annonces})
+    return render(request, "annonces/templates/index.html", {"annonces": annonces})
 
 def detail(request, id):
     annonce = get_object_or_404(Annonce, id=id)
